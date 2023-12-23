@@ -37,7 +37,7 @@ $(document).ready(function () {
     let charArrTitle = textTitle.split('');
 let text = `Chúc mừng Giáng Sinh, bạn nhé!   Cảm ơn m thời gian qua dã cho t biết được nhiều thứ, cũng một phần nhờ m mà t vượt qua được giai đoạn khó khăn nhất.   
 Sắp hết 2023 rồi,  chuyện gì buồn cũng đã đi qua,  chuyện vui sẽ trở thành kỉ niệm đẹp.   Chúc m mùa noel,  mùa đông zá rét vui vẻ,  sớm có bồ cho ấm áp nhé.                    
-    |                      xin lỗi t rảnh vl :)`
+    |                       xin lỗi t rảnh vl :)`
 let charArrContent = text.split('');
 var currentIndexTitle = 0;
 var currentIndexContent = 0;
