@@ -1,3 +1,102 @@
+console.log('js');
+const audio = document.getElementById('audioPlayer')
+console.log('audio',audio);
+function playMusic() {
+  console.log('audio',audio);
+  audio.play();
+}
+
+
+const seekSlider = document.getElementById('volumeSlider');
+console.log(seekSlider);
+audio.addEventListener('loadedmetadata', function() {
+  seekSlider.setAttribute('max', audio.duration);
+  console.log('loadedmetadata',audio.duration);
+});
+
+audio.addEventListener('timeupdate', function() {
+  seekSlider.value = audio.currentTime;
+  console.log('timeupdate seekSlider.value',seekSlider.value);
+});
+
+seekSlider.addEventListener('change', function() {
+  audio.currentTime = seekSlider.value;
+  console.log('input seekSlider.value',seekSlider.value);
+});
+
+
+
+$(document).ready(function () {
+  var $card = $(".card"),
+    $bgCard = $(".bgCard"),
+    $icon = $(".icon"),
+    cartPageBottomP = document.querySelector(".cart-page-bottom p"),
+    cartPageBottomH4 = document.querySelector(".cart-page-bottom h4");
+    let textTitle = "Dear Rino/ThanhVy!";
+    let charArrTitle = textTitle.split('');
+let text = `Chúc mừng Giáng Sinh, bạn nhé! Cảm ơn rino đã làm bạn với chaser trong thời gian qua, cũng nhờ rino mà chaser đã vượt qua được giai đoạn khó khăn nhất. Chúc rino trong mùa đông zá rét này sẽ gặp được nhiều bạn tốt, được học sinh giỏi nhé. Và cũng gần hết năm 2023 rồi, mọi chuyện không vui cũng đã qua đi, chuyện buồn sẽ chỉ là quá khứ, còn chuyện vui trở thành kỉ niệm đáng nhớ.  Mong rino hướng tới tương lai tươi sáng, chính chắn hơn nhé. Còn giờ thì cùng nhau đón giáng sinh và năm mới nào <3`
+let charArrContent = text.split('');
+var currentIndexTitle = 0;
+var currentIndexContent = 0;
+var textIntervalTitle;
+var textIntervalContent;
+function resetText(){
+    clearInterval(textIntervalTitle)
+    clearInterval(textIntervalContent)
+    cartPageBottomH4.textContent = "";
+    cartPageBottomP.textContent = "";
+    currentIndexTitle = 0;
+    currentIndexContent = 0;
+}
+  $(".cart-page-outside").on("click", function () {
+    $card.addClass("is-opened");
+    if($card.hasClass("is-opened")){
+        textIntervalTitle = setInterval(function(){
+            if(currentIndexTitle < charArrTitle.length){
+                cartPageBottomH4.textContent += charArrTitle[currentIndexTitle];
+                currentIndexTitle++;
+                console.log(currentIndexTitle)
+            }
+            else{
+                clearInterval(textIntervalTitle)
+                textIntervalContent = setInterval(function(){
+                    if(currentIndexContent < charArrContent.length){
+                        cartPageBottomP.textContent += charArrContent[currentIndexContent];
+                        currentIndexContent++;
+                console.log(currentIndexContent)
+                    }
+                    else{
+                        clearInterval(textIntervalContent)
+                    }
+                },100)
+            }
+        },100)
+    }
+    else{
+        //resetText()
+    }
+  });
+
+  $(".centerer").on("click", function () {
+    $card.css({"display": "block",});
+    $bgCard.css({"display": "block",});
+    $icon.css({"display": "block",});
+  });
+  $(".fa-xmark").on("click", function () {
+    $card.fadeOut();
+    $bgCard.fadeOut();
+    $icon.fadeOut();
+    $card.removeClass("is-opened");
+    //resetText()
+  });
+
+});
+
+
+
+
+
+
 var bbiTL = new TimelineMax(),
   // logo
   frame = document.getElementById("frame"),
@@ -401,92 +500,4 @@ mainTl
 mainTl.add(starTl, 0);
 gsap.globalTimeline.timeScale(1.5);
 
-$(document).ready(function () {
-  var $card = $(".card"),
-    $bgCard = $(".bgCard"),
-    $icon = $(".icon"),
-    cartPageBottomP = document.querySelector(".cart-page-bottom p"),
-    cartPageBottomH4 = document.querySelector(".cart-page-bottom h4");
-    let textTitle = "Dear Rino/ThanhVy!";
-    let charArrTitle = textTitle.split('');
-let text = `Chúc mừng Giáng Sinh, bạn nhé! Cảm ơn rino đã làm bạn với chaser trong thời gian qua, cũng nhờ rino mà chaser đã vượt qua được giai đoạn khó khăn nhất. Chúc rino trong mùa đông zá rét này sẽ gặp được nhiều bạn tốt, được học sinh giỏi nhé. Và cũng gần hết năm 2023 rồi, mọi chuyện không vui cũng đã qua đi, chuyện buồn sẽ chỉ là quá khứ, còn chuyện vui trở thành kỉ niệm đáng nhớ.  Mong rino hướng tới tương lai tươi sáng, chính chắn hơn nhé. Còn giờ thì cùng nhau đón giáng sinh và năm mới nào <3`
-let charArrContent = text.split('');
-var currentIndexTitle = 0;
-var currentIndexContent = 0;
-var textIntervalTitle;
-var textIntervalContent;
-function resetText(){
-    clearInterval(textIntervalTitle)
-    clearInterval(textIntervalContent)
-    cartPageBottomH4.textContent = "";
-    cartPageBottomP.textContent = "";
-    currentIndexTitle = 0;
-    currentIndexContent = 0;
-}
-  $(".cart-page-outside").on("click", function () {
-    $card.toggleClass("is-opened");
-    if($card.hasClass("is-opened")){
-        textIntervalTitle = setInterval(function(){
-            if(currentIndexTitle < charArrTitle.length){
-                cartPageBottomH4.textContent += charArrTitle[currentIndexTitle];
-                currentIndexTitle++;
-                console.log(currentIndexTitle)
-            }
-            else{
-                clearInterval(textIntervalTitle)
-                textIntervalContent = setInterval(function(){
-                    if(currentIndexContent < charArrContent.length){
-                        cartPageBottomP.textContent += charArrContent[currentIndexContent];
-                        currentIndexContent++;
-                console.log(currentIndexContent)
-                    }
-                    else{
-                        clearInterval(textIntervalContent)
-                    }
-                },100)
-            }
-        },100)
-    }
-    else{
-        //resetText()
-    }
-  });
 
-  $(".centerer").on("click", function () {
-    $card.fadeIn();
-    $bgCard.fadeIn();
-    $icon.fadeIn();
-  });
-  $(".fa-xmark").on("click", function () {
-    $card.fadeOut();
-    $bgCard.fadeOut();
-    $icon.fadeOut();
-    $card.removeClass("is-opened");
-    //resetText()
-  });
-
-});
-const audio = document.getElementById('audioPlayer')
-
-function playMusic() {
-  console.log('audio',audio);
-  audio.play();
-}
-
-
-const seekSlider = document.getElementById('volumeSlider');
-console.log(seekSlider);
-audio.addEventListener('loadedmetadata', function() {
-  seekSlider.setAttribute('max', audio.duration);
-  console.log('loadedmetadata',audio.duration);
-});
-
-audio.addEventListener('timeupdate', function() {
-  seekSlider.value = audio.currentTime;
-  console.log('timeupdate seekSlider.value',seekSlider.value);
-});
-
-seekSlider.addEventListener('change', function() {
-  audio.currentTime = seekSlider.value;
-  console.log('input seekSlider.value',seekSlider.value);
-});
