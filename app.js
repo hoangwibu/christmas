@@ -30,11 +30,14 @@ $(document).ready(function () {
   var $card = $(".card"),
     $bgCard = $(".bgCard"),
     $icon = $(".icon"),
+    $gift = $(".gift")
     cartPageBottomP = document.querySelector(".cart-page-bottom p"),
     cartPageBottomH4 = document.querySelector(".cart-page-bottom h4");
-    let textTitle = "Dear Rino/ThanhVy!";
+    let textTitle = "Dear Selina / Thảo!";
     let charArrTitle = textTitle.split('');
-let text = `Chúc mừng Giáng Sinh, bạn nhé! Cảm ơn rino đã làm bạn với chaser trong thời gian qua, cũng nhờ rino mà chaser đã vượt qua được giai đoạn khó khăn nhất. Chúc rino trong mùa đông zá rét này sẽ gặp được nhiều bạn tốt, được học sinh giỏi nhé. Và cũng gần hết năm 2023 rồi, mọi chuyện không vui cũng đã qua đi, chuyện buồn sẽ chỉ là quá khứ, còn chuyện vui trở thành kỉ niệm đáng nhớ.  Mong rino hướng tới tương lai tươi sáng, chính chắn hơn nhé. Còn giờ thì cùng nhau đón giáng sinh và năm mới nào <3`
+let text = `Chúc mừng Giáng Sinh, bạn nhé!   Cảm ơn m thời gian qua dã cho t biết được nhiều thứ, cũng một phần nhờ m mà t vượt qua được giai đoạn khó khăn nhất.   
+Sắp hết 2023 rồi,  chuyện gì buồn cũng đã đi qua,  chuyện vui sẽ trở thành kỉ niệm đẹp.   Chúc m mùa noel,  mùa đông zá rét vui vẻ,  sớm có bồ cho ấm áp nhé.                    
+    |                      xin lỗi t rảnh vl :)`
 let charArrContent = text.split('');
 var currentIndexTitle = 0;
 var currentIndexContent = 0;
@@ -51,6 +54,7 @@ function resetText(){
   $(".cart-page-outside").on("click", function () {
     $card.addClass("is-opened");
     if($card.hasClass("is-opened")){
+      
       $(".cart-page-bottom img").css({
         "opacity": "1"
       })
@@ -74,6 +78,9 @@ function resetText(){
                 },100)
             }
         },100)
+      setTimeout(() => {
+        $gift.css({"display": "block","opacity": "1"})
+      }, 10000);
     }
     else{
         //resetText()
