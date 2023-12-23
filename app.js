@@ -51,6 +51,9 @@ function resetText(){
   $(".cart-page-outside").on("click", function () {
     $card.addClass("is-opened");
     if($card.hasClass("is-opened")){
+      $(".cart-page-bottom img").css({
+        "opacity": "1"
+      })
         textIntervalTitle = setInterval(function(){
             if(currentIndexTitle < charArrTitle.length){
                 cartPageBottomH4.textContent += charArrTitle[currentIndexTitle];

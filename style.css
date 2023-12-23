@@ -443,6 +443,8 @@
 
 .cart-page-bottom img{
   border-radius: 40%;
+  opacity: 0.01; /* Giá trị mặc định */
+  transition: opacity 19.3s ease;
 }
 
 
