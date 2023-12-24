@@ -1,4 +1,5 @@
 console.log('js');
+
 const audio = document.getElementById('audioPlayer')
 console.log('audio',audio);
 function playMusic() {
@@ -35,9 +36,9 @@ $(document).ready(function () {
     cartPageBottomH4 = document.querySelector(".cart-page-bottom h4");
     let textTitle = "Dear Selina / Thảo!";
     let charArrTitle = textTitle.split('');
-let text = `Chúc mừng Giáng Sinh, bạn nhé!   Cảm ơn m thời gian qua dã cho t biết được nhiều thứ, cũng một phần nhờ m mà t vượt qua được giai đoạn khó khăn nhất.   
-Sắp hết 2023 rồi,  chuyện gì buồn cũng đã đi qua,  chuyện vui sẽ trở thành kỉ niệm đẹp.   Chúc m mùa noel,  mùa đông zá rét vui vẻ,  sớm có bồ cho ấm áp nhé.                    
-    |                       xin lỗi t rảnh vl :)`
+let text = `Chúc mừng Giáng Sinh, bạn nhé! Chúc m đêm giáng sinh vui vẻ, an lành và ấm áp cùng những người bạn/anh/chị/em thân quen.  Cảm ơn m thời gian qua dã cho t biết được nhiều thứ  và một phần giúp t vượt qua được giai đoạn khó khăn nhất.   
+Sắp hết 2023 rồi,  chuyện gì buồn cũng đã đi qua,  chuyện vui sẽ trở thành kỉ niệm đẹp.   Chúc m mùa noel,  mùa đông zá rét này  sớm có bồ cho ấm nhé.                    
+    |                              .              .            .                       xin lỗi t rảnh vl :)`
 let charArrContent = text.split('');
 var currentIndexTitle = 0;
 var currentIndexContent = 0;
@@ -80,7 +81,7 @@ function resetText(){
         },100)
       setTimeout(() => {
         $gift.css({"display": "block","opacity": "1"})
-      }, 10000);
+      }, 26000);
     }
     else{
         //resetText()
